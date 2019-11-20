@@ -15,5 +15,6 @@
 	<classpathentry kind="lib" path="content/poi-ooxml-4.1.0.jar"/>
 	<classpathentry kind="lib" path="content/poi-ooxml-schemas-4.1.0.jar"/>
 	<classpathentry kind="lib" path="content/xmlbeans-3.1.0.jar"/>
+	<classpathentry kind="lib" path="content/mysql-connector-java-5.1.48.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

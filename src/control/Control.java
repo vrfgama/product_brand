@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import apache_poi.Routine;
+import apache_poi.ReadExcel;
 import apache_poi.WriteExcel;
 import product.Product;
 import validation.ValidationGTIN13;
@@ -23,12 +23,12 @@ public class Control {
 		try {
 			
 			// read excel
-			FileInputStream fileInput= Routine.getFileInput("content/exemplo.xlsx");
-			XSSFWorkbook workbook= Routine.getXSSFWorkbook(fileInput);
-			XSSFSheet sheet= Routine.getXSSFSheet(workbook);
+			FileInputStream fileInput= ReadExcel.getFileInput("content/exemplo.xlsx");
+			XSSFWorkbook workbook= ReadExcel.getXSSFWorkbook(fileInput);
+			XSSFSheet sheet= ReadExcel.getXSSFSheet(workbook);
 			
-			index= Routine.getEanIndex(sheet);
-			list = Routine.getEanValues(sheet, index);
+			index= ReadExcel.getEanIndex(sheet);
+			list = ReadExcel.getEanValues(sheet, index);
 			validation(list);
 			
 			fileInput.close();

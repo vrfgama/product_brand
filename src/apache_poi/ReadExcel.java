@@ -14,7 +14,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import product.Product;
 
-public class Routine {
+public class ReadExcel {
 
 	static ArrayList<Product> list = new ArrayList<Product>();
 
