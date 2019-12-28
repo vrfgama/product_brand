@@ -3,7 +3,13 @@ package apache_poi;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
+
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -13,14 +19,17 @@ import product.Product;
 
 public class WriteExcel {
 	
+	// instance a file output stream with the input foulder
 	public static FileOutputStream getFileOutput(String fouder) throws FileNotFoundException {
 		return new FileOutputStream(new File(fouder));
 	}
 	
+	// create new tab
 	public static XSSFSheet createSheet(XSSFWorkbook workbook) {
-		return workbook.createSheet("Now");
+		return workbook.createSheet(date());
 	}
 	
+	// create header
 	public static void header(XSSFSheet sheet) {
 		Row row = sheet.createRow(0);
 		Cell cell0 = row.createCell(0);
@@ -33,7 +42,7 @@ public class WriteExcel {
 		cell2.setCellValue("Brand Suggested");
 	}
 	
-		
+	// create tab body and fill in with data	
 	public static void body(XSSFSheet sheet, ArrayList<Product> list) {
 		
 		int r= 1;
@@ -53,5 +62,15 @@ public class WriteExcel {
 			
 			r++;
 		}
+	}
+	
+	// current date and time to name tab
+	public static String date() {
+		
+		TimeZone.setDefault(TimeZone.getTimeZone("GMT-03:00"));
+	    Date date = Calendar.getInstance().getTime();
+	    SimpleDateFormat sdf = new SimpleDateFormat("ddMMyy-HHmmss",new Locale("BR"));
+	    
+	    return sdf.format(date);
 	}
 }

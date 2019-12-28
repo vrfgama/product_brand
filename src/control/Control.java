@@ -50,15 +50,13 @@ public class Control {
 		}
 	}
 	
-	
+	// validates by counting the number of digits of the code, checking prefix and check verifying digit
 	public static void validation(ArrayList<Product> list) {
 		
 		for(Product p: list) {
 			
 			switch(p.getCode().length()) {
 			case 13:
-				System.out.println(ValidationGTIN13.prefix(p));
-				System.out.println(ValidationGTIN13.shred(p));
 				
 				if(ValidationGTIN13.prefix(p).equals("789") && ValidationGTIN13.shred(p) == true ) {
 					p.setTypeCode("GTIN-13");
@@ -69,27 +67,16 @@ public class Control {
 				
 				break;
 			case 11:
-				System.out.println("case 11: "+p.getCode());
+				p.setTypeCode("Outro");
 				break;
 			case 8:
 				break;
 			default:
-				System.out.println("default: "+p.getCode());
+				p.setTypeCode("Outro");
 				break;
 			}
 		}
 		
-	}
-	
-	
-	
-	// para ver resultado
-	public static String teste() {
-		String s= "";
-		for(Product p: list) {
-			s+= p.getCode()+"\n";
-		}
-		return s;
 	}
 
 }

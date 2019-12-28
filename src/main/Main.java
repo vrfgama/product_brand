@@ -10,10 +10,6 @@ public class Main {
 	public static void main(String[] args) {
 		Control.run();
 		
-		//Control.ccc();
-		//Control.validation();
-		//System.out.println(Control.teste());
-		
 		testaConexaoBD();
 	}
 	

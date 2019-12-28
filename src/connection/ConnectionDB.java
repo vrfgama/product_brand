@@ -31,11 +31,11 @@ public class ConnectionDB {
 
 		} catch (ClassNotFoundException e) { 
 
-			JOptionPane.showMessageDialog(null, "O driver expecificado nao foi encontrado.");
+			JOptionPane.showMessageDialog(null, "O driver expecificado não foi encontrado.");
 
 		} catch (SQLException e) {
 
-			JOptionPane.showMessageDialog(null, "Nao foi possivel conectar ao Banco de Dados.");
+			JOptionPane.showMessageDialog(null, "Não foi possivel conectar ao Banco de Dados.");
 
 		}
 
